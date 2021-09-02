@@ -1,4 +1,3 @@
-from django.core import paginator
 from django.shortcuts import render
 from .models import Order, Product 
 from django.core.paginator import Paginator
@@ -13,7 +12,7 @@ def home(request):
         product_objects = product_objects.filter(title__icontains = item_name)
 
     #paginator
-    paginator = Paginator(product_objects, 3)
+    paginator = Paginator(product_objects,1)
     page = request.GET.get('page')
     product_objects = paginator.get_page(page)
 
