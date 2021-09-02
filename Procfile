@@ -1,1 +1,1 @@
-web: gunicorn demijum.wsgi
+web: gunicorn demiJum.wsgi
