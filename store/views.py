@@ -1,23 +1,22 @@
-# from django.core import paginator
 from django.shortcuts import render
 from .models import Order, Product 
 from django.core.paginator import Paginator
 # Create your views here.
 
 def home(request):
-    product_object = Product.objects.all()
+    product_objects = Product.objects.all()
 
     # serch 
     item_name = request.GET.get('item_name')
     if item_name != '' and item_name is not None:
-        product_object = product_object.filter(title__icontains = item_name)
+        product_objects = product_objects.filter(title__icontains = item_name)
 
     #paginator
-    paginator = Paginator(product_object, 3)
+    paginator = Paginator(product_objects, 3)
     page = request.GET.get('page')
-    product_object = paginator.get_page(page)
+    product_objects = paginator.get_page(page)
 
-    return render(request, 'store/home.html', {'product_objects':product_object})
+    return render(request, 'store/home.html', {'product_objects':product_objects})
 
 def item(request, id):
     product_object = Product.objects.get(id=id)
