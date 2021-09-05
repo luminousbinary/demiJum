@@ -12,7 +12,7 @@ def home(request):
         product_objects = product_objects.filter(title__icontains = item_name)
 
     #paginator
-    paginator = Paginator(product_objects, 3)
+    paginator = Paginator(product_objects,14)
     page = request.GET.get('page')
     product_objects = paginator.get_page(page)
 

@@ -59,7 +59,7 @@
                   </div>
                   <div class="form-group col-md-2">
                     <label for="inputZip">Amount To Be Paid</label>
-                    <input readonly="" type="text" class="form-control" id="totalPrice" name="totalPrice" value="" required>
+                    <input  type="text" class="form-control" id="totalPrice" name="totalPrice"  disabled>
                   </div>
                 </div>
                 <div class="form-group col-md-12">
@@ -97,7 +97,7 @@ for( item in cart){
 
 }
 priceString = `<li class="list-group-item d-flex justify-content-between align-items-center"><b>Your Total Amount</b><span class="badge badge-success">${totalPrice}</b></span></li>`
-$('#totalPrice').append(totalPrice);   
+$('#totalPrice').val(totalPrice);   
 $('#item_list').val(priceString);   
 
 $("#items").val(JSON.stringify( cart))
