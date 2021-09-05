@@ -1,7 +1,7 @@
 import os
 from pathlib import Path
 import django_heroku
-import dj_database_url
+# import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -16,7 +16,7 @@ SECRET_KEY = 'django-insecure-cnvtdxdnoxbz4d(b_=mdo8u=2wq#iovg^6gz#c6qvv8(q7gdj7
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['drmijumi.herokuapp.com']
 
 
 # Application definition
@@ -69,13 +69,28 @@ WSGI_APPLICATION = 'demijum.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#         'CONN_MAX_AGE': 500,
+#     }
+# }
+
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-        'CONN_MAX_AGE': 500,
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'dbk96er782hnpa',
+        'USER': 'vycnbwspajraox',
+        'PASSWORD': '83475b58a282bed92a9a87f70a1d3fff9241d24ff9764fabbe20e98773a56254',
+        'HOST': 'ec2-34-202-115-62.compute-1.amazonaws.com',
+        'PORT': '5432' 
+        # 'CONN_MAX_AGE': 500 ,
     }
 }
+
+
 
 
 # Password validation
@@ -118,7 +133,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 
 
 # Static files (CSS, JavaScript, Images)
