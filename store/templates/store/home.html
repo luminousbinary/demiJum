@@ -26,7 +26,7 @@
                         <div class="navbar-nav">
                                 <a class="nav-link active" aria-current="page" href="https://drmijumi.herokuapp.com">Home</a>
                                 <a class="nav-link" href="#">About Us</a>
-                                <button id="cart_id" type="button" class="btn" data-bs-html="true" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="Bottom popover">
+                                <button id="cart_id" type="button" class="btn"  data-bs-html="true" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="Bottom popover">
                                     <img src="{% static 'image/cart.png' %}" >
                                 </button> 
                             </div>
@@ -50,7 +50,7 @@
                 </form>
             </div>
         </div>
-
+<!--  -->
         <div class="row">
             {% for product in product_objects %}
             <div class="col-md-3">
@@ -148,7 +148,7 @@
         
         // //checkout
         //cartString += "<a href='#'><button class='btn btn-warning' id='checkout'>check</button></a>";
-        cartString += "<br><a class='btn btn-success' id='checkout' href='/checkout'>checkout</a>";     
+        cartString += `<br><a class='btn btn-success' id='checkout' href='/checkout'>checkout</a>   <a class='btn btn-danger' onClick = "localStorage.clear()" id='clear_checkout' >Clear</a>`;     
 
         var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
         document.getElementById("cart_id").setAttribute("data-bs-content",  cartString);
